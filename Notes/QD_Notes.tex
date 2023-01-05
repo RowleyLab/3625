@@ -1,0 +1,79 @@
+\documentclass[12pt, openany, letterpaper]{memoir}
+\usepackage{NotesStyle}
+
+\begin{document}
+\title{CHEM 3615 Lab Notes\\--Exp. 1: Quantum Dots--}
+\author{Matthew Rowley}
+\date{Fall 2016}
+\mainmatter
+\maketitle
+
+This is a supplementary addendum to your laboratory manual in order to clear up a few of the more confusing questions.
+
+There are two ways to get the quantum dot size:
+\begin{itemize}
+	\item Using the particle in a box model (either equation 2 or 5).
+	\item Using the empirical formula from equation 6.
+\end{itemize}
+
+The empirical formula is very accurate, since it relies on real experimental data. To get this equation, researchers created many quantum dot samples at a range of different sizes. They first measured the absorbance spectrum and recorded $\lambda$ for the excitonic peak for each sample. Then they examined the dot samples under an electron microscope and actually measured the size of the dots. This gave them a graph of empirical data, which they then fit to a polynomial curve (4th order with respect to $\lambda$) to get the coefficients. As long as our \ch{CdSe} quantum dots are the same as their \ch{CdSe} quantum dots, then this equation should be very accurate.
+
+The empirical approach can be very accurate, but it suffers from two weaknesses:
+\begin{enumerate}
+	\item If any aspect of the experimental conditions affects the peak position, then any deviation from those conditions will make the equation less accurate. These conditions could include the temperature, the solvent used, the capping ligands, defects, and impurities which are specific to the synthetic procedure for making the dots, and much more.
+	\item It offers no insight into the nature of the quantum states involved, or really anything about the system except for the one fitting parameter -- diameter.
+\end{enumerate}
+
+In contrast, the particle in a box model will probably yield poor results, but because it is built up from basic principles it has the following two strengths:
+\begin{enumerate}
+	\item It can more easily be extended to different systems. For example, the equations could be adapted for quantum well (2-dimensional) or quantum wire (1-dimensional) systems. The equations could work equally well for \ch{CdS} quantum dots as for \ch{CdSe} quantum dots, as long as we know the correct $m_{e,eff}$ for each material.
+	\item It can offer much broader insight into the system. For example, we not only know the length of the box, but the basic shape of the excited states as well. We can also predict the wavelength for hot bands and overtones (other transitions than the $2\leftarrow1$ transition we investigated here). We will use the PIB model in a few paragraphs to calculate the $m_{e,eff}$, which doesn't even feature in equation 6.
+\end{enumerate}
+
+As we will see, the best approach is a combination of the two.
+
+Under the report section, you are first asked to find the energies of your excitonic transition based on the absorption spectrum. Then, using equation 2 you should estimate the size of the quantum box (i.e. quantum dot) using the \emph{free electron mass}. This is all you can do, since you don't have any way to guess what the effective electron mass might be. It will give an unreasonable value.
+
+Next, you use equation 6 to get more reliable values for the quantum dot diameters. These diameter values should be trusted, and used instead of the PIB values when computing the dot concentration. These diameters should also be the ones you use when making the plot of $\Delta E_{21}$ vs $\dfrac{1}{L^2}$. 
+
+You should also be careful to use the mean transition energy, rather than the absorption peak energy. This distinction is important, and again highlights the difference between an \emph{ab initio} approach (built up from first principles) vs an empirical approach (fitting experimental data). Because the data used to build up equation 6 were taken from absorption data (S-O coupling and all), we must be sure to use the same type of data when we find the diameters. But the plot will eventually be used in the context of equation 5, the PIB equation. The PIB model does not account for S-O coupling, so we should try to eliminate it as a factor by using the mean transition energies. That way our data and model match as best as possible.
+
+Now that you have the graph of $\Delta E_{21}$ vs $\dfrac{1}{L^2}$, you should find the effective electron mass $m_{e,eff}$\ldots but how? Consider equation 5:
+\begin{equation*}
+	\Delta E_{n+1\leftarrow n} = \frac{h^2}{8L^2}\frac{1}{m_{e,eff}}(2n+1)
+\end{equation*}
+ 
+ We see here some familiar elements. What is the $y$ value on our chart? Let $y=\Delta E_{n+1\leftarrow n}$. What is the $x$ value on our chart? Let $x=\dfrac{1}{L^2}$. Now simply substitute $x$ and $y$ into equation 5 and we get:
+ \begin{equation*}
+	y=\frac{h^2}{8}x\frac{1}{m_{e,eff}}(2n+1) = \frac{3h^2}{8}\frac{1}{m_{e,eff}}x \hspace{2em}\text{for }n=1
+ \end{equation*}
+ 
+ Now it is more clear how the slope of our plot, now represented by the equation above, can be used to get $m_{e,eff}$. Without the PIB model, we could not have gotten the effective electron mass, but now that you have it you can go back now and try to find the size of the quantum box with $m_{e,eff}$ instead of the rest mass. You will see that your PIB results have much improved! Now that those results are closer to reality, you could justify using the PIB model to draw other conclusions about the system as well. The mixed empirical/theoretical approach really shines in this example.
+ 
+ Finally, a note about errors. When finding peak positions, there are a number of sophisticated ways to find the precise position as well as the error. We simply don't have time to go into them, so a quicker way is to estimate. You could use the half-width at half-max of the peak, for example. This is probably an overly conservative estimate, but since we have the background and additional shoulder peaks which we aren't properly subtracting out -- perhaps it is better to err on the side of caution.
+ 
+ The error in your measurement is notated $\sigma$, and this is the number that you would put as a ``$\pm$'' range. Since you take the wavelength and use it in other calculations to make other estimates, you need to know how error is propagated through mathematical operations.
+ 
+ If $f$ is a function of $x, y, z,\ldots$, then the error in the final value, $\sigma_f$, will depend on the errors in the variables, $\sigma_x$, $\sigma_y$, $\sigma_z$, etc. The \emph{real} rule for error propagation is as follows:
+ \begin{equation*}
+	 \sigma_f^2 = \left(\frac{\partial f}{\partial x}\right)^2\sigma_x^2 + \left(\frac{\partial f}{\partial y}\right)^2\sigma_y^2 + \left(\frac{\partial f}{\partial z}\right)^2\sigma_z^2 + \ldots
+ \end{equation*}
+ 
+ You don't \emph{need} to know this equation, but I wish you did. Again, there is just not enough time! However, you should remember the rules that this equation reduces into for the simple cases of multiplication/division, and addition/subtraction.
+ 
+ For addition/subtraction, the \emph{absolute} errors combine according to the Pythagorean theorem:
+ \begin{equation*}
+	 \sigma_f = \sqrt{\sigma_x^2 + \sigma_y^2 + \sigma_z^2 + \ldots}
+ \end{equation*}
+ 
+ For multiplication/division, the \emph{relative} errors combine according to the Pythagorean theorem:
+ \begin{equation*}
+	 \frac{\sigma_f}{f} = \sqrt{\left(\frac{\sigma_x}{x}\right)^2 + \left(\frac{\sigma_y}{y}\right)^2 + \left(\frac{\sigma_z}{z}\right)^2 + \ldots}
+ \end{equation*}
+ 
+ Your quantitative analysis book by Harris goes into great detail about getting appropriate errors to linear fit parameters (i.e. the error in the slope from your plot), but again we don't have time to go into that level of detail. Instead just try to apply the above rules for subtraction and division to the formula $s=\dfrac{\text{rise}}{\text{run}}$.
+ 
+\begin{center}
+	{\large Good luck!}
+\end{center}
+\end{document}
